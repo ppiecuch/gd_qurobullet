@@ -10,7 +10,7 @@
 #include "core/class_db.h"
 #include "core/engine.h"
 
-void register_qurobullet_types() {
+void register_gd_qurobullet_types() {
 	ClassDB::register_class<Bullet>();
 	ClassDB::register_class<BulletType>();
 	ClassDB::register_class<BulletServer>();
@@ -20,5 +20,5 @@ void register_qurobullet_types() {
 	Engine::get_singleton()->add_singleton(Engine::Singleton("BulletServerRelay", memnew(BulletServerRelay)));
 }
 
-void unregister_qurobullet_types() {
+void unregister_gd_qurobullet_types() {
 }
