@@ -24,7 +24,7 @@ void register_gd_qurobullet_types() {
 	Engine::get_singleton()->add_singleton(Engine::Singleton("BulletServerRelay", _bullet_server_relay));
 }
 
-void unregister_qurobullet_types() {
+void unregister_gd_qurobullet_types() {
 	if (_bullet_server_relay) {
 		memdelete(_bullet_server_relay);
 	}
