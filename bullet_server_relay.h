@@ -16,6 +16,8 @@ public:
 
 	void spawn_bullet(const Ref<BulletType> &p_type, const Vector2 &p_position, const Vector2 &p_direction);
 	void spawn_volley(const Ref<BulletType> &p_type, const Vector2 &p_origin, const Array &p_shots);
+
+	static BulletServerRelay *get_instance();
 };
 
-#endif
+#endif /* BULLETSERVERRELAY_H */

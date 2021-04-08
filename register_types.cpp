@@ -21,4 +21,6 @@ void register_gd_qurobullet_types() {
 }
 
 void unregister_gd_qurobullet_types() {
+	if (BulletServerRelay *instance = BulletServerRelay::get_instance())
+		memdelete(instance);
 }

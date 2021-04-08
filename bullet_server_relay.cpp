@@ -1,5 +1,7 @@
 #include "bullet_server_relay.h"
 
+BulletServerRelay *instance = NULL;
+
 void BulletServerRelay::spawn_bullet(const Ref<BulletType> &p_type, const Vector2 &p_position, const Vector2 &p_direction) {
 	emit_signal("bullet_spawn_requested", p_type, p_position, p_direction);
 }
@@ -16,8 +18,12 @@ void BulletServerRelay::_bind_methods() {
 	ADD_SIGNAL(MethodInfo("volley_spawn_requested", PropertyInfo(Variant::OBJECT, "type", PROPERTY_HINT_RESOURCE_TYPE, "BulletType"), PropertyInfo(Variant::VECTOR2, "position"), PropertyInfo(Variant::ARRAY, "shots")));
 }
 
+BulletServerRelay *BulletServerRelay::get_instance() { return instance; }
+
 BulletServerRelay::BulletServerRelay() {
+	instance = this;
 }
 
 BulletServerRelay::~BulletServerRelay() {
+	instance = NULL;
 }
