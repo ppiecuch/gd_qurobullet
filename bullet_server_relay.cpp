@@ -1,6 +1,6 @@
 #include "bullet_server_relay.h"
 
-BulletServerRelay *instance = NULL;
+static BulletServerRelay *instance = nullptr;
 
 void BulletServerRelay::spawn_bullet(const Ref<BulletType> &p_type, const Vector2 &p_position, const Vector2 &p_direction) {
 	emit_signal("bullet_spawn_requested", p_type, p_position, p_direction);
@@ -25,5 +25,5 @@ BulletServerRelay::BulletServerRelay() {
 }
 
 BulletServerRelay::~BulletServerRelay() {
-	instance = NULL;
+	instance = nullptr;
 }
