@@ -316,12 +316,22 @@ void BulletServer::_bind_methods() {
 
 BulletServer::BulletServer() {
 	bullet_pool_size = 1500;
-	play_area_mode = VIEWPORT;
-	play_area_margin = 0;
-	play_area_rect = Rect2();
 	pop_on_collide = true;
+  max_lifetime = 0.0;
+	play_area_mode = VIEWPORT;
+	play_area_rect = Rect2();
+	play_area_margin = 0;
+  play_area_allow_incoming = false;
 	relay_autoconnect = true;
 }
 
 BulletServer::~BulletServer() {
+	for (int i = 0; i < live_bullets.size(); i++) {
+		Bullet *bullet = live_bullets[i];
+    memdelete(bullet);
+  }
+	for (int i = 0; i < dead_bullets.size(); i++) {
+		Bullet *bullet = dead_bullets[i];
+    memdelete(bullet);
+  }
 }
